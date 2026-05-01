@@ -348,7 +348,7 @@ export default function Home() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 50, maxWidth: 1100, margin: '0 auto' }} className="contact-grid">
           <div>
             {[
-              ['📍','Address','Lotus Science HSS, Kendrapara, Odisha – 754211'],
+              ['📍','Address','Lotus Science HSS, near Kajala shiv temple, Tinimuhani ,Kendrapara, Odisha – 754211'],
               ['📞','Phone','+91 9438177802'],
               ['📧','Email','lotussciencecollege@gmail.com'],
               ['🕐','Timings','Mon–Sat: 9AM – 5PM'],
