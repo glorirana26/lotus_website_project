@@ -349,7 +349,7 @@ export default function Home() {
           <div>
             {[
               ['📍','Address','Lotus Science HSS, near Kajala shiv temple, Tinimuhani ,Kendrapara, Odisha – 754211'],
-              ['📞','Phone','+91 9438177802'],
+              ['📞','Phone','+91 9438117802'],
               ['📧','Email','lotussciencecollege@gmail.com'],
               ['🕐','Timings','Mon–Sat: 9AM – 5PM'],
             ].map(([icon, label, val]) => (
