@@ -242,3 +242,8 @@ app.listen(8080, () => {
   console.log('🔑  Admin: admin / lotus@123')
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 })
+
+// Health check
+app.get('/api/health',(req, res)=>{
+  res.json({status:'ok', message: 'Lotus School API is running'})
+})
