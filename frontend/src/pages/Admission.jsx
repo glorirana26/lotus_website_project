@@ -1,6 +1,47 @@
 import PageBanner from "../components/PageBanner";
-
+import {useState} from 'react'
 export default function Admission() {
+  const [form, setForm] = useState({
+  name: "",
+  fatherName: "",
+  dob: "",
+  mobile: "",
+  email: "",
+  board: "",
+  percentage: "",
+  course: "",
+  address: ""
+})
+
+const [error, setError] = useState("")
+
+const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email)
+const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone)
+
+const handleSubmit = () => {
+  if (!form.name || form.name.length < 3) {
+    return setError("Enter valid full name")
+  }
+
+  if (!isValidPhone(form.mobile)) {
+    return setError("Enter valid 10 digit mobile number")
+  }
+
+  if (!isValidEmail(form.email)) {
+    return setError("Enter valid email address")
+  }
+
+  if (!form.course) {
+    return setError("Please select course")
+  }
+
+  if (!form.address) {
+    return setError("Address is required")
+  }
+
+  setError("")
+  alert("Application submitted successfully! 🪷")
+}
   return (
     <div id="admission" style={{ fontFamily: "Segoe UI, sans-serif", width: "100%" }}>
 
@@ -124,38 +165,48 @@ export default function Admission() {
           {/* Online Application Form */}
           <div id="admission-form">
             <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "white" }}>Online Application Form</h3>
+            {error && (
+  <p style={{ color: "#ff4d4d", marginBottom: 10 }}>{error}</p>
+)}
             <div style={{ width: 40, height: 3, background: "#c8a84b", marginBottom: 28 }}></div>
             <div style={{ background: "rgba(255,255,255,0.04)", borderRadius: 16, padding: "36px", border: "1px solid rgba(255,255,255,0.1)" }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="adm-form-grid">
                 {[
-                  ["Full Name", "text", "Enter your full name"],
-                  ["Father's Name", "text", "Enter father's name"],
-                  ["Date of Birth", "date", ""],
-                  ["Mobile Number", "tel", "+91 XXXXX XXXXX"],
-                  ["Email Address", "email", "your@email.com"],
-                  ["10th Board", "text", "BSE / CBSE"],
-                  ["10th Percentage", "text", "e.g. 85%"],
-                  ["Preferred Course", "text", "PCM-B / PCM-IT / PCB-IT"],
-                ].map(([label, type, ph]) => (
-                  <div key={label}>
-                    <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.6)", letterSpacing: 1, textTransform: "uppercase", marginBottom: 8 }}>{label}</label>
-                    <input type={type} placeholder={ph} style={{
-                      width: "100%", padding: "12px 14px",
-                      background: "rgba(255,255,255,0.08)",
-                      border: "1.5px solid rgba(255,255,255,0.15)",
-                      borderRadius: 10, fontSize: 14, color: "white",
-                      fontFamily: "inherit", outline: "none", boxSizing: "border-box"
-                    }}
-                      onFocus={e => e.target.style.borderColor = "#c8a84b"}
-                      onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.15)"}
-                    />
-                  </div>
-                ))}
+  ["Full Name", "text", "Enter your full name", "name"],
+  ["Father's Name", "text", "Enter father's name", "fatherName"],
+  ["Date of Birth", "date", "", "dob"],
+  ["Mobile Number", "tel", "+91 XXXXX XXXXX", "mobile"],
+  ["Email Address", "email", "your@email.com", "email"],
+  ["10th Board", "text", "BSE / CBSE", "board"],
+  ["10th Percentage", "text", "e.g. 85%", "percentage"],
+  ["Preferred Course", "text", "PCM-B / PCM-IT / PCB-IT", "course"],
+].map(([label, type, ph, field]) => (
+  <div key={label}>
+    <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.6)", letterSpacing: 1, textTransform: "uppercase", marginBottom: 8 }}>{label}</label>
+    <input
+      type={type}
+      placeholder={ph}
+      value={form[field]}
+      onChange={e => setForm({ ...form, [field]: e.target.value })}
+      style={{
+        width: "100%", padding: "12px 14px",
+        background: "rgba(255,255,255,0.08)",
+        border: "1.5px solid rgba(255,255,255,0.15)",
+        borderRadius: 10, fontSize: 14, color: "white",
+        fontFamily: "inherit", outline: "none", boxSizing: "border-box"
+      }}
+      onFocus={e => e.target.style.borderColor = "#c8a84b"}
+      onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.15)"}
+    />
+  </div>
+))}
               </div>
 
               <div style={{ marginTop: 20 }}>
                 <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.6)", letterSpacing: 1, textTransform: "uppercase", marginBottom: 8 }}>Full Address</label>
-                <textarea rows={3} placeholder="Enter your complete address..." style={{
+                <textarea rows={3} placeholder="Enter your complete address..." 
+                value ={form.address}
+                onchange={e => setForm({...form, address: e.target.value})}style={{
                   width: "100%", padding: "12px 14px",
                   background: "rgba(255,255,255,0.08)",
                   border: "1.5px solid rgba(255,255,255,0.15)",
@@ -172,7 +223,7 @@ export default function Admission() {
                 border: "none", padding: "15px 48px", borderRadius: 8,
                 fontSize: 15, fontWeight: 700, cursor: "pointer", fontFamily: "inherit"
               }}
-                onClick={() => alert("Application submitted! We will contact you soon. 🪷")}
+               onClick={handleSubmit}
               >Submit Application →</button>
             </div>
           </div>
