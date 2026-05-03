@@ -18,30 +18,50 @@ export default function Admission() {
   const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
   const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone);
 
-  const handleSubmit = () => {
-    if (!form.name || form.name.length < 3) {
-      return setError("Enter valid full name");
-    }
+  const handleSubmit = async () => {
+  if (!form.name || form.name.length < 3) {
+    return setError("Enter valid full name")
+  }
+  if (!isValidPhone(form.mobile)) {
+    return setError("Enter valid 10 digit mobile number")
+  }
+  if (!isValidEmail(form.email)) {
+    return setError("Enter valid email address")
+  }
+  if (!form.course) {
+    return setError("Please select course")
+  }
+  if (!form.address) {
+    return setError("Address is required")
+  }
 
-    if (!isValidPhone(form.mobile)) {
-      return setError("Enter valid 10 digit mobile number");
-    }
+  setError("")
 
-    if (!isValidEmail(form.email)) {
-      return setError("Enter valid email address");
+  try {
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL || 'https://lotus-backend-dfsi.onrender.com/api'}/enquiries`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          mobile: form.mobile,
+          email: form.email,
+          course: form.course,
+          message: `Father: ${form.fatherName}, DOB: ${form.dob}, Board: ${form.board}, %: ${form.percentage}, Address: ${form.address}`
+        })
+      }
+    )
+    if (res.ok) {
+      alert("Application submitted successfully! We will contact you soon. 🪷")
+      setForm({ name: "", fatherName: "", dob: "", mobile: "", email: "", board: "", percentage: "", course: "", address: "" })
+    } else {
+      setError("Server error. Please try again!")
     }
-
-    if (!form.course) {
-      return setError("Please select course");
-    }
-
-    if (!form.address) {
-      return setError("Address is required");
-    }
-
-    setError("");
-    alert("Application submitted successfully! 🪷");
-  };
+  } catch {
+    setError("Server error. Is backend running?")
+  }
+}
   return (
     <div
       id="admission"
@@ -204,11 +224,9 @@ export default function Admission() {
               }}
             >
               Students who have passed the 10th Board Examination conducted by
-              the BSE Odisha / CBSE / ICSE are eligible for admission. Admission
+              the BSE Odisha / CBSE  are eligible for admission. Admission
               will be strictly based on merit under the Student Academic
-              Management System (SAMS) as per Resolution No.:
-              1-A-HE-4A-2010-3702/HE dated 20.02.2010 of Government of Odisha,
-              Higher Education Department. Candidates selected under the
+              Management System (SAMS). Candidates selected under the
               e-admission procedure (SAMS) are intimated individually by
               post/e-mail in the prescribed intimation letter formulated by the
               Govt. of Odisha, regarding the date of admission and fees to be
