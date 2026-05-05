@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <div>
-      <footer style={{ background: '#0a1f44', color: 'rgba(255,255,255,0.6)', padding: '60px 6% 30px' }}>
+      <footer style={{ background: '#1e242b', color: 'rgba(255,255,255,0.6)', padding: '60px 6% 30px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 50, maxWidth: 1200, margin: '0 auto 40px' }} className="footer-grid">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>

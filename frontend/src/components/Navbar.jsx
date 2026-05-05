@@ -244,8 +244,7 @@ export default function Navbar() {
                   {[
                     ["Online Application", "/admission"],
                     ["Admission Process", "/admission"],
-                    ["Course Fees", "/admission"],
-                    ["Rules & Regulations", "/admission"],
+                    ["Course Fees", "/course-fees"],
                     ["Summer Course", "/summer-course"],
                   ].map(([label, path]) => (
                     <div
@@ -487,7 +486,7 @@ export default function Navbar() {
                   ["Online Application", "/admission"],
                   ["Admission Process", "/admission"],
                   ["Summer Course", "/summer-course"],
-                  ["Course Fees", "/admission"],
+                  ["Course Fees", "/course-fees"],
                  ].map(([l, path]) => (
                   <div
                     key={l}
