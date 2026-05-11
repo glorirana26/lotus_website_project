@@ -237,7 +237,7 @@ export default function SummerCourse() {
       </div>
 
       {/* CTA */}
-      <div style={{ background: '#c0392b', padding: '50px 6%', textAlign: 'center' }}>
+      <div style={{ background: '#193c7d', padding: '50px 6%', textAlign: 'center' }}>
         <h2 style={{ color: 'white', fontSize: 'clamp(20px,3vw,28px)', fontWeight: 800, marginBottom: 12 }}>
           Secure Your Seat in Summer Course 2025!
         </h2>

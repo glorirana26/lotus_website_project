@@ -5,7 +5,6 @@ export default function Navbar() {
   const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
-  const [acadOpen, setAcadOpen] = useState(false)
   const [admOpen, setAdmOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [mobileAcad, setMobileAcad] = useState(false)
@@ -150,63 +149,11 @@ export default function Navbar() {
             >
               About
             </a>
-
-            {/* ── Academics Dropdown ── */}
             <div
-              style={{ position: "relative" }}
-              onMouseEnter={() => setAcadOpen(true)}
-              onMouseLeave={() => setAcadOpen(false)}
+              onClick={() => navigate("/academics")}
+              style={linkStyle("academics")}
             >
-              <span
-                style={{
-                  ...linkStyle("academics"),
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 4,
-                }}
-              >
-                Academics <span style={{ fontSize: 10, marginTop: 1 }}>▾</span>
-              </span>
-
-              {acadOpen && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 38,
-                    left: 0,
-                    background: "white",
-                    borderRadius: 10,
-                    minWidth: 200,
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-                    padding: "8px 0",
-                    zIndex: 100,
-                    border: "1px solid rgba(0,0,0,0.08)",
-                  }}
-                >
-                  {["CHSE Pattern", "Examination", "Syllabus", "Results"].map(
-                    (label) => (
-                      <div
-                        key={label}
-                        onClick={() => {
-                          navigate("/academics");
-                          setAcadOpen(false);
-                        }}
-                        style={dropdownItemStyle}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "#f0f4ff";
-                          e.currentTarget.style.color = "#1e5fc4";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "white";
-                          e.currentTarget.style.color = "#0a1f44";
-                        }}
-                      >
-                        {label}
-                      </div>
-                    ),
-                  )}
-                </div>
-              )}
+              Academics
             </div>
 
             {/* ── Admission Dropdown ── */}
@@ -422,7 +369,7 @@ export default function Navbar() {
                   overflow: "hidden",
                 }}
               >
-                {["CHSE Pattern", "Examination", "Syllabus", "Results"].map(
+                {["Faculty", "Examination", "NEET/JEE Coaching", "Results"].map(
                   (l) => (
                     <div
                       key={l}
@@ -487,10 +434,13 @@ export default function Navbar() {
                   ["Admission Process", "/admission"],
                   ["Summer Course", "/summer-course"],
                   ["Course Fees", "/course-fees"],
-                 ].map(([l, path]) => (
+                ].map(([l, path]) => (
                   <div
                     key={l}
-                    onClick={() => { navigate(path); setMenuOpen(false);  }}
+                    onClick={() => {
+                      navigate(path);
+                      setMenuOpen(false);
+                    }}
                     style={{
                       color: "rgba(255,255,255,0.8)",
                       fontSize: 14,

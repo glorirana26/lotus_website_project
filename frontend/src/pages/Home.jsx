@@ -283,7 +283,7 @@ export default function Home() {
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 60, alignItems: 'center' }} className="chairman-grid">
           <div style={{ textAlign: 'center' }}>
             <div style={{ width: 180, height: 180, borderRadius: '50%', background: 'linear-gradient(135deg,#1e5fc4,#0a1f44)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 72, margin: '0 auto 20px', boxShadow: '0 20px 60px rgba(30,95,196,0.3)' }}>👨‍💼</div>
-            <h4 style={{ fontSize: 20, fontWeight: 700, color: '#0a1f44', marginBottom: 4 }}>prof. Saroj kumar Samal</h4>
+            <h4 style={{ fontSize: 20, fontWeight: 700, color: '#0a1f44', marginBottom: 4 }}>prof. Saroj kanta Samal</h4>
             <p style={{ color: '#1e5fc4', fontWeight: 600, fontSize: 17 }}>Chairman, Lotus Science HSS</p>
           </div>
           <div>
