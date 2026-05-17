@@ -334,63 +334,21 @@ export default function Navbar() {
           </a>
 
           {/* Academics */}
-          <div>
-            <div
-              onClick={() => setMobileAcad(!mobileAcad)}
-              style={{
-                color: "white",
-                fontSize: 15,
-                padding: "13px 0",
-                borderBottom: "1px solid rgba(255,255,255,0.08)",
-                cursor: "pointer",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <span>📚 Academics</span>
-              <span
-                style={{
-                  fontSize: 12,
-                  transition: "0.3s",
-                  transform: mobileAcad ? "rotate(180deg)" : "none",
-                  display: "inline-block",
-                }}
-              >
-                ▾
-              </span>
-            </div>
-            {mobileAcad && (
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  borderRadius: 8,
-                  margin: "4px 0 8px",
-                  overflow: "hidden",
-                }}
-              >
-                {["Faculty", "Examination", "NEET/JEE Coaching", "Results"].map(
-                  (l) => (
-                    <div
-                      key={l}
-                      onClick={() => {
-                        navigate("/academics");
-                        setMenuOpen(false);
-                      }}
-                      style={{
-                        color: "rgba(255,255,255,0.8)",
-                        fontSize: 14,
-                        padding: "10px 16px",
-                        borderBottom: "1px solid rgba(255,255,255,0.05)",
-                        cursor: "pointer",
-                      }}
-                    >
-                      → {l}
-                    </div>
-                  ),
-                )}
-              </div>
-            )}
+
+          <div
+            onClick={() => {
+              navigate("/academics");
+              setMenuOpen(false);
+            }}
+            style={{
+              color: "white",
+              fontSize: 15,
+              padding: "13px 0",
+              borderBottom: "1px solid rgba(255,255,255,0.08)",
+              cursor: "pointer",
+            }}
+          >
+            📚 Academics
           </div>
 
           {/* Admission */}

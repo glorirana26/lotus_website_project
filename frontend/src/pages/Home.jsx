@@ -7,14 +7,14 @@ import Navbar from '../components/Navbar'
 const slides = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400',
+    image:'/images/banner.jpeg',
     title: 'Welcome to Lotus Science HSS',
     subtitle: 'Preparation to fly high in life',
     btn: 'Explore Academics'
   },
   {
     id: 2,
-    image: '/images/banner.jpeg',
+    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400',
     title: 'Excellence in Science Education',
     subtitle: 'Best coaching for Engineering & Medical entrance in Odisha',
     btn: 'View Results'

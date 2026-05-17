@@ -16,7 +16,6 @@ import Academic from './pages/Academic'
 export default function App() {
   return (
       <Routes>
-        {/* Layout wrapper — Navbar + Footer sab pages pe */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/admission" element={<Admission />} />
@@ -30,7 +29,6 @@ export default function App() {
           <Route path="/academics/coaching" element={<Coaching />} />
         </Route>
  
-        {/* Bina Layout ke */}
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>

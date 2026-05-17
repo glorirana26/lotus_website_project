@@ -149,7 +149,7 @@ export default function Admission() {
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginBottom: 40 }}></div>
 
-          {/* How to Apply */}
+          {/* How to Apply 
           <div style={{ marginBottom: 40 }}>
             <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "white" }}>How to Apply</h3>
             <div style={{ width: 40, height: 3, background: "#c8a84b", marginBottom: 20 }}></div>
@@ -158,11 +158,11 @@ export default function Admission() {
               for the academic session. Students shall download the Common Application Form from the Govt. of Odisha website
               (www.dheorissa.in) only after the publication of results from the Board of Secondary Education, Odisha.
             </p>
-          </div>
+          </div>*/}
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginBottom: 40 }}></div>
 
-          {/* CAF */}
+          {/* CAF 
           <div style={{ marginBottom: 40 }}>
             <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "white" }}>Submission of Common Application Form (CAF)</h3>
             <div style={{ width: 40, height: 3, background: "#c8a84b", marginBottom: 20 }}></div>
@@ -172,7 +172,7 @@ export default function Admission() {
               certificates will be submitted in the destination college / Resource Centre / Nodal College within the prescribed
               period by the Govt. of Odisha.
             </p>
-          </div>
+          </div>*/}
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginBottom: 40 }}></div>
 

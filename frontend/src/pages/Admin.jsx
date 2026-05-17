@@ -7,7 +7,6 @@ export default function Admin() {
   const [stats, setStats] = useState({})
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
-
   const token = localStorage.getItem('token')
 
   useEffect(() => {
